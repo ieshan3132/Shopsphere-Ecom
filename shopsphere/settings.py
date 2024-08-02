@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9nk#zjw!oiibde@x4!fx6(0%w41zauvw(7jvy4kof5ucqyl#6-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'https://shopsphere-u1pr.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'https://shopsphere-u1pr.onrender.com']
 
 
 # Application definition
