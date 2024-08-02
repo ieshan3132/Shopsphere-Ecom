@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-9nk#zjw!oiibde@x4!fx6(0%w41zauvw(7jvy4kof5ucqyl#6-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", ".now.sh", "shopsphere.vercel.app", "shopsphere.now.sh"]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://shopsphere.onrender.com', ".vercel.app", ".now.sh", "shopsphere.vercel.app", "shopsphere.now.sh"]
 
 
 # Application definition
@@ -86,20 +86,22 @@ WSGI_APPLICATION = 'shopsphere.wsgi.application'
 #    }
 #}
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 's2',
+#        'USER': 'postgres',
+#        'PASSWORD': 'Ieshan@3132',
+#        'HOST': 'localhost',
+#        'PORT': '5432',
+#    }
+#}
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 's2',
-        'USER': 'postgres',
-        'PASSWORD': 'Ieshan@3132',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    "default": dj_database_url.parse('postgresql://shopsphere_user:0pCiGmYuQ5jRyXRxKlQxQNKDST3iVxji@dpg-cqm7o73qf0us73a6qii0-a.oregon-postgres.render.com/shopsphere')
 }
 
-#DATABASES = {
-#    "default": dj_database_url.parse('postgresql://shopsphere_user:0pCiGmYuQ5jRyXRxKlQxQNKDST3iVxji@dpg-cqm7o73qf0us73a6qii0-a.oregon-postgres.render.com/shopsphere')
-#}
+
 
 
 # Password validation
