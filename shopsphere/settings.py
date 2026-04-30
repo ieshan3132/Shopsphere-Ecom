@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'store.apps.StoreConfig',
+    'shopsphere2',
 ]
 
 MIDDLEWARE = [
@@ -98,7 +99,12 @@ WSGI_APPLICATION = 'shopsphere.wsgi.application'
 #}
 
 DATABASES = {
-    "default": dj_database_url.parse('postgresql://shopsphere_user:0pCiGmYuQ5jRyXRxKlQxQNKDST3iVxji@dpg-cqm7o73qf0us73a6qii0-a.oregon-postgres.render.com/shopsphere')
+    'default': dj_database_url.config(
+        # Paste your full Neon connection string here as a string
+        default='postgresql://neondb_owner:npg_Zu7anCqImxA0@ep-autumn-cloud-amgb5itu-pooler.c-5.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require',
+        conn_max_age=600,
+        conn_health_checks=True,  # Vital for Neon's "Scale to Zero" feature [cite: 84]
+    )
 }
 
 
