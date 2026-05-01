@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -87,23 +91,11 @@ WSGI_APPLICATION = 'shopsphere.wsgi.application'
 #    }
 #}
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 's2',
-#        'USER': 'postgres',
-#        'PASSWORD': 'Ieshan@3132',
-#        'HOST': 'localhost',
-#        'PORT': '5432',
-#    }
-#}
-
 DATABASES = {
     'default': dj_database_url.config(
-        # Paste your full Neon connection string here as a string
-        default='postgresql://neondb_owner:npg_Zu7anCqImxA0@ep-autumn-cloud-amgb5itu-pooler.c-5.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require',
+        default=os.environ.get('DATABASE_URL'),
         conn_max_age=600,
-        conn_health_checks=True,  # Vital for Neon's "Scale to Zero" feature [cite: 84]
+        conn_health_checks=True,
     )
 }
 
